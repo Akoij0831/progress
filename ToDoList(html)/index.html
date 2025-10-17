@@ -1,29 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
-</html>
-</html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+
+  <!-- Your CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #89cff0, #4169e1);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container for the to-do list */
+    .container {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+      width: 350px;
+    }
+
+    /* Header */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* The task list */
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px;
+      margin-bottom: 8px;
+      background: #f2f2f2;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    li:hover {
+      background: #e0e0e0;
+    }
+
+    /* Input and button area */
+    .input-area {
+      display: flex;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+    }
+
+    button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #a7c71abb;
+      color: white;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #315acc;
+    }
+  </style>
+</head>
+
 <body>
+  <div class="container">
     <h1>My To-Do List</h1>
     <ul id="todo-list">
-        <li>Take trash out</li>
-        <li>Clean disk</li>
+      <li>Take trash out</li>
+      <li>Clean desk</li>
     </ul>
-    <input type="text" id="new-task" placeholder="Put New task">
-    <button onclick="addTask()">Add Task</button>
 
-    <script>
-        function addTask() {
-            const taskInput = document.getElementById('new-task');
-          const taskText = taskInput.value.trim();
-            if (taskText) {
-                const li = document.createElement('li');
-                li.textContent = taskText;
-                document.getElementById('todo-list').appendChild(li);
-                taskInput.value = '';
-            }
-        }
-    </script>
+    <div class="input-area">
+      <input type="text" id="new-task" placeholder="Put new task">
+      <button onclick="addTask()">Add</button>
+    </div>
+  </div>
+
+  
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById('new-task');
+      const taskText = taskInput.value.trim();
+
+      if (taskText) {
+        const li = document.createElement('li');
+        li.textContent = taskText;
+        document.getElementById('todo-list').appendChild(li);
+        taskInput.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
+
