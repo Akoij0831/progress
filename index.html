@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Checkbox List</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f4ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 300px;
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .task {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .task input[type="checkbox"] {
+    margin-right: 8px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <input id="taskInput" type="text" placeholder="Type and press Enter..." />
+    <div id="taskList"></div>
+  </div>
+
+  <script>
+    const input = document.getElementById("taskInput");
+    const list = document.getElementById("taskList");
+
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter" && input.value.trim() !== "") {
+        const task = document.createElement("div");
+        task.className = "task";
+        task.innerHTML = `<input type="checkbox"> <span>${input.value}</span>`;
+        list.appendChild(task);
+        input.value = "";
+      }
+    });
+  </script>
+</body>
+</html>

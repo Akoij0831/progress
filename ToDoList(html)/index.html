@@ -91,8 +91,10 @@
   <div class="container">
     <h1>My To-Do List</h1>
     <ul id="todo-list">
-      <li>Wake up<button class="delete-btn">Delete</button></li>
-      <li>Get Dressed<button class="delete-btn">Delete</button></li> 
+      <li>Wake up <input type="checkbox" name="option_name" value="option_value"></li>
+      <li>Brush Teeth <input type="checkbox" name="option_name" value="option_value"></li>
+      <li>Have Breakfast <input type="checkbox" name="option_name" value="option_value"></li>
+      <li>Get Dressed <input type="checkbox" name="option_name" value="option_value">
     </ul>
 
     <div class="input-area">
@@ -114,7 +116,17 @@
         taskInput.value = '';
       }
     }
-  </script>
+    input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter" && input.value.trim() !== "") {
+        const task = document.createElement("div");
+        task.className = "task";
+        task.innerHTML = `<input type="checkbox"> <span>${input.value}</span>`;
+        list.appendChild(task);
+        input.value = "";
+      }
+    });
+
+</script>
 </body>
 </html>
 
