@@ -1,4 +1,4 @@
-package progress;
+package Misc;
 
 public class VowelChecker {
 public static void main(String[] args){

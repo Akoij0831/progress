@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "Random",
+			"path": ".."
+		},
+		{
+			"name": "ToDoList(html)",
+			"path": "../../ToDoList(html)"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Random"
+	}
+}
